@@ -7,16 +7,22 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className=" pt-4 p-2 ">
-      <div className="relative h-[70vh] md:h-[75vh] mt-4  overflow-hidden rounded-2xl sm:rounded-bl-none max-w-[99vw] ">
+<div className="
+  relative z-10
+  flex min-h-[85vh]
+  flex-col items-center justify-center
+  px-6 text-center text-white
+  lg:pt-24 rounded-t-3xl
+">
         <Image
           src="/image11.jpg"
           alt="Hero background"
           fill
           priority
-          className="object-cover"
+          className="object-cover rounded-t-2xl"
         />
 
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2),rgba(0,0,0,0.75))]" />
+        <div className="absolute inset-0 rounded-t-2xl bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2),rgba(0,0,0,0.75))]" />
 
         <Navbar />
 

@@ -25,35 +25,38 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="absolute top-0 left-1/2 z-50 w-full max-w-[99vw] -translate-x-1/2 px-6 hidden lg:block">
-        <div className="mx-auto flex items-center justify-between">
+      {/* ===================== DESKTOP (LG+) ===================== */}
+      <header className="absolute top-0 left-1/2 z-50 hidden w-full max-w-[1280px] -translate-x-1/2 px-6 lg:block">
+        <div className="flex items-center justify-between gap-8">
+
           {/* LOGO */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex shrink-0 items-center">
             <Image
               src="/image8.png"
               alt="Marhaba Haji Logo"
-              width={58}
-              height={58}
-              className="h-32 w-32 object-contain"
+              width={72}
+              height={72}
+              className="h-20 w-20 object-contain"
               priority
             />
           </Link>
 
-          {/* MENU */}
-          <nav className="flex h-12 items-center rounded-full bg-white/15 px-5 backdrop-blur-xl">
-            <ul className="flex h-full items-center text-base text-white">
+          {/* CENTER MENU */}
+          <nav className="flex max-w-full flex-1 justify-center">
+            <ul className="flex h-12 items-center gap-1 rounded-full bg-white/15 px-3 backdrop-blur-xl text-sm text-white">
               {navLinks.map(({ label, href }) => {
                 const isActive = pathname === href;
                 return (
-                  <li key={href} className="h-full flex items-center">
+                  <li key={href} className="h-full">
                     <Link
                       href={href}
-                      className={`flex h-full items-center rounded-full px-5 transition
+                      className={`flex h-full items-center   rounded-full px-4 transition
                         ${
                           isActive
                             ? "bg-white text-[#0c2a33]"
-                            : "text-white opacity-90 hover:opacity-100"
-                        }`}
+                            : "opacity-90 hover:opacity-100"
+                        }
+                      `}
                     >
                       {label}
                     </Link>
@@ -63,22 +66,22 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* ACTIONS */}
-          <div className="flex items-center gap-2">
+          {/* ACTION BUTTONS */}
+          <div className="flex shrink-0 items-center gap-3">
             <Link
-              href="/"
-              className="rounded-full border border-white/30 px-5 py-2 text-white hover:bg-white/10"
+              href="/signup"
+              className="rounded-full border border-white/30 px-5 py-2 text-sm text-white hover:bg-white/10"
             >
               Signup
             </Link>
             <Link
-              href="/"
-              className="rounded-full border border-white/30 px-5 py-2 text-white hover:bg-white/20"
+              href="/login"
+              className="rounded-full border border-white/30 px-5 py-2 text-sm text-white hover:bg-white/20"
             >
               Login
             </Link>
             <Link
-              href="/"
+              href="/cart"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/20"
             >
               <ShoppingCart size={18} />
@@ -87,39 +90,34 @@ export default function Navbar() {
         </div>
       </header>
 
-      <header className="absolute top-0 left-0 z-50 w-full px-4 py-4 flex items-center justify-between lg:hidden">
+      {/* ===================== MOBILE / MD ===================== */}
+      <header className="absolute top-0 left-0 z-50 flex w-full items-center justify-between px-4 py-4 lg:hidden">
         <button onClick={() => setOpen(true)}>
           <Menu className="text-white" size={28} />
         </button>
+
         <Link href="/">
           <Image
             src="/image8.png"
             alt="Logo"
-            className="h-16 w-16 object-contain"
-            width={48}
-            height={48}
+            width={56}
+            height={56}
+            className="h-14 w-14 object-contain"
           />
         </Link>
       </header>
 
+      {/* ===================== MOBILE SIDEBAR ===================== */}
       {open && (
         <>
-          {/* Overlay */}
           <div
             className="fixed inset-0 z-40 bg-black/50"
             onClick={() => setOpen(false)}
           />
 
-          {/* Sidebar */}
           <aside className="fixed left-0 top-0 z-50 h-full w-[280px] bg-[#020617] p-6">
             <div className="mb-6 flex items-center justify-between">
-              <Image
-                src="/image8.png"
-                alt="Logo"
-                className="h-16 w-16"
-                width={48}
-                height={48}
-              />
+              <Image src="/image8.png" alt="Logo" width={56} height={56} />
               <button onClick={() => setOpen(false)}>
                 <X className="text-white" />
               </button>
@@ -138,7 +136,8 @@ export default function Navbar() {
                         isActive
                           ? "bg-white text-[#0c2a33]"
                           : "text-white opacity-90 hover:bg-white/10"
-                      }`}
+                      }
+                    `}
                   >
                     {label}
                   </Link>

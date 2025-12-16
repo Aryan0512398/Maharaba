@@ -2,7 +2,7 @@
 
 export default function StatsBar() {
   return (
-    <section className="-mt-6 px-2  max-[99vw]">
+    <section className="-mt-6 lg:-mt-5 px-2 max-[99vw]">
       <div
         className="
           mx-auto

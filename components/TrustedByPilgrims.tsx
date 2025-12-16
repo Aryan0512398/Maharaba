@@ -124,22 +124,19 @@ function TrustCard({
   return (
     <div
       className={`
-        rounded-4xl p-6 
-        w-full 
-        md:w-[300px] 
-        lg:w-[340px] 
-        h-[200px] 
-        md:h-[220px] 
-        ${bg} 
+        ${bg}
         ${className}
+        w-full
+        rounded-4xl
+        p-6
       `}
     >
-      <div className="flex h-10 w-10 mt-4 m-5 items-center  justify-center rounded-full bg-white">
+      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-white">
         {icon}
       </div>
 
       <h4
-        className={`mt-4 text-sm md:text-lg font-semibold ${
+        className={`text-sm md:text-lg font-semibold ${
           dark ? "text-white" : "text-[#0c2a33]"
         }`}
       >
@@ -147,7 +144,7 @@ function TrustCard({
       </h4>
 
       <p
-        className={`mt-1 -mb-4 text-xs md:text-sm leading-relaxed ${
+        className={`mt-1 text-xs md:text-sm leading-relaxed ${
           dark ? "text-[#F1F5F9]" : "text-[#42526B]"
         }`}
       >
@@ -156,3 +153,4 @@ function TrustCard({
     </div>
   );
 }
+

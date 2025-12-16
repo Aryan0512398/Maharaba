@@ -51,11 +51,11 @@ export default function PackageCard({
             </h3>
 
             <div className="flex gap-2">
-              <span className="flex items-center gap-1 rounded-full border border-[#CAD5E2] bg-[#F8FAFC] px-2 py-1 text-xs text-[#475156]">
+              <span className="flex items-center whitespace-nowrap gap-1 rounded-full border border-[#CAD5E2] bg-[#F8FAFC] px-2 py-1 text-xs text-[#475156]">
                 <Calendar size={12} /> {days}
               </span>
 
-              <span className="flex items-center gap-1 rounded-full border border-[#CAD5E2] bg-[#F8FAFC] px-2 py-1 text-xs text-[#475156]">
+              <span className="flex items-center whitespace-nowrap gap-1 rounded-full border border-[#CAD5E2] bg-[#F8FAFC] px-2 py-1 text-xs text-[#475156]">
                 <Hotel size={12} /> {hotels}
               </span>
             </div>
